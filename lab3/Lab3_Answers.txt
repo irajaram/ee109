@@ -1,0 +1,35 @@
+			     EE 109  - Spring 2024
+		       Lab 3 - Arduino Input and Output
+
+Edit the document below to fill in your answers to the review problems at the
+end of the assignment web page.
+
+1. (2 points) Suppose we relocated the three buttons from group B, bits 5-3 to
+group D, bits 5-3, noting that the LED is still attached to group D, bit 2. 
+Assuming appropriate DDRD values, consider the following method of turning
+on the LED.
+
+    PORTD = 0x04; // turn on the LED
+
+Explain the problem with this approach and, in particular, what would stop
+working after the execution of that line of code.
+
+Response: The problem with this approach is that this assigns the value to the whole
+register whereas we just want it to be assigned to bit 2. This will play
+a role in the behavior of the buttons.
+
+
+2. (2 points) Note that in Lab 2 we found that the delay of a NOT gate
+(hardware only) is around 10ns and this measurement was very
+consistent. However, the delay measured in this lab is on the order of 10
+microseconds (hardware + software) and varies considerably from measurement to
+measurement. Briefly explain why the delay between the press of the 'C' button
+and the start of the LED on/off sequence varied when you took multiple
+measurements.
+
+Hint: ignore the hardware propagation delays which are very small (tens of ns),
+and think about how your program executes.
+
+Response: The delay between the press of the 'C' button and the start of the LED sequence 
+varied because the button was pressed at different moments throughout the while 
+loop's run time.

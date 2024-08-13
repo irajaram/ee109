@@ -1,0 +1,31 @@
+			     EE 109 - Spring 2024
+		     Lab 9 - Hardware Datapath Components
+
+Edit the document below to fill in your answers to the review problems at the
+end of the assignment web page.
+
+
+1. (1 point) Tammy Trojan feels the gap between the MID brightness using a
+37.5% PWM signal and the BRIGHT level at 100% is too much and wants to add a
+fourth brightness level at 75% called "LIT".  In our circuit where a low signal
+turns the LED on, this means she needs to create a signal that is low 75% of
+the time, or a one 25% of the time. Assuming you had access to additional gates
+to add to the circuit, how could you create this signal?  Write the Boolean
+logic express for LIT in terms of the output signals from the counter.
+
+D' * C'
+
+
+
+2. (1 point) We would like to add a feature where if the Select button is
+pressed on the LCD, it turns the LED off completely, and then turns it back on
+when Select is pressed again.  Explain how this could be done without having to
+make any changes to the wiring of the circuit .
+
+Because there is still a fourth output in the 2-4 decoder that is left unused, we can 
+utilize this instead of using a state variable. There should be a variable created that checks 
+and keeps if the LED is turned on or off. In the case that this is the output that is selected, LED state 
+variable will be switched.
+
+
+

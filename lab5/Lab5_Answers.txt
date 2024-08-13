@@ -1,0 +1,57 @@
+			     EE 109 - Spring 2024
+		     Lab 5 - Analog to Digital Conversion
+
+Edit the document below to fill in your answers to the review problems at the
+end of the assignment web page.
+
+
+1. (1 point) To ensure a date appears in the format: MM/DD, what snprintf()
+formatting string could be used to ensure dates like 6/9 are generated in a
+character buffer as 06/09.
+
+	char buf[17];
+	int m = 6; d = 9;
+	snprintf(buf, 17, %02d/%02d, m, d);
+
+
+
+
+
+
+
+1. (3 points) Review the conceptual operation of an ADC and use the given
+parameters to find the desired value.
+
+  a. Your 8-bit ADC has Hi and Lo reference voltages of 1V and 4V, what digital
+  number would result from sampling a 2.0V?
+
+  DN  = ((Input Voltage - Lo reference voltage) / (Hi reference voltage - Lo reference voltage)) * 2^(num of bits)
+  DN = ((2.0V - 1V)/(4V - 1V)) * 2^8
+  DN = (1/3) * 256
+  DN = 85
+
+  b. Your 5-bit ADC has Hi and Lo reference voltages of 0V and 5V, what input
+  voltage would yield a digital number of 12?
+
+  DN  = ((Input Voltage - Lo reference voltage) / (Hi reference voltage- Lo reference voltage)) * 2^(num of bits)
+  (DN/2^(num of bits)) = ((Input Voltage - Lo reference voltage) / (Hi reference voltage- Lo reference voltage)e)
+  (DN/2^(num of bits)) * ((Hi reference voltage- Lo reference voltage)) = Input Voltage - Lo reference voltage
+  ((DN/2^(num of bits)) * (Hi reference voltage- Lo reference voltage)) + Lo reference voltage = Input Voltage
+  Input Voltage = ((12/2^5) * (5V- 0V)) + 0
+  Input Voltage = 1.875 V
+
+
+  c.  Your 6-bit ADC has a Lo reference voltages of 2V. A voltage is sampled at
+  2.4V and the digital result is 26. What was the Hi reference voltage used by
+  the ADC?
+
+  DN  = ((Input Voltage - Lo reference voltage) / (Hi reference voltage- Lo reference voltage)) * 2^(num of bits)
+  (DN/2^(num of bits)) = ((Input Voltage - Lo reference voltage) / (Hi reference voltage- Lo reference voltage))
+  (DN/2^(num of bits)) * (Hi reference voltage- Lo reference voltage) = (Input Voltage - Lo reference voltage) 
+  Hi reference voltage = ((Input Voltage - Lo reference voltage)/(DN/2^(num of bits))) + Lo reference voltage
+  Hi reference voltage = ((2.4V - 2V)/(26/2^6)) + 2V
+  Hi reference voltage = 2.98 V
+
+
+
+

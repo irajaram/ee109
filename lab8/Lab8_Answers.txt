@@ -1,0 +1,41 @@
+			     EE 109 - Spring 2024
+			Lab 8 - Pulse Width Modulation
+
+Edit the document below to fill in your answers to the review problems at the
+end of the assignment web page.
+
+
+1. (2 point) Billy Bruin wants to control a servo motor like the one used in
+this lab but only has the 8-bit Timer/Counter0 available to use to generate the
+PWM signal.  He says this won't work since the maximum pulse period you can get
+from the 8-bit timer is 16.4ms and servo motors need PWM signals with a 20ms
+period. Tammy Trojan decides to try using the 8-bit timer anyway just to see if
+it will work.  Assuming she sets it up for the maximum period of 16.4ms, what
+values will she have to put in the OCR0A register to generate the minimum pulse
+width of 0.75ms, and the maximum pulse width of 2.25ms?
+
+Formula:
+OCR0A = (pulse width needed/ max period) * maxCnt
+
+(0.75 ms/16.4 ms) * 255 = 11.66->rounded to 12
+
+(2.25 ms /16.4 ms) * 255 = 34.98 -> rounded to 35
+
+
+
+
+2. (1 point) When Timer/Counter1 is counting, the count value is kept in the
+TCNT1 register and is constantly being compared for equality (and only
+equality) to the values in the OCR1B and OCR1A registers to determine when to
+terminate the PWM pulse or to end one pulse period and start the next. Suppose
+at some point your program adjusts the PWM width by changing the OCR1B
+register, and the new OCR1B value is lower than the value that is currently in
+the TCNT1 register.  What will happen to the output signal during this pulse
+period?
+
+There will be no alteration to the output signal due to the fact that the condition to be checked is if TCNT1 is equal to OCR1B. However, this does not occur
+until the following pulse period, which is where TCNT1 is reset to a value of 0.
+
+
+
+
